@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import BackgroundDiv from './BackgroundDiv';
 
 const theme = createTheme();
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 const Icon = styled(PhotoCamera)(({ theme }) => ({
   marginRight: '20px'
@@ -67,11 +68,11 @@ const App = () => {
         </BackgroundDiv>
         <CardGrid maxWidth="md">
           <Grid container spacing={4}>
-            {[...Array(6)].map((_, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
                 <StyledCard>
                   <CardMediaStyled
-                    image={`https://source.unsplash.com/featured/?nature,water`}
+                    image="https://source.unsplash.com/random"
                     title="Image title"
                   />
                   <CardContentStyled>
@@ -79,7 +80,7 @@ const App = () => {
                       Heading
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this to describe the content.
+                      This is a media card. You can use this to describe the content
                     </Typography>
                   </CardContentStyled>
                   <CardActions>
@@ -89,6 +90,7 @@ const App = () => {
                 </StyledCard>
               </Grid>
             ))}
+
           </Grid>
         </CardGrid>
       </main>
